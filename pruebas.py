@@ -1,0 +1,8 @@
+def listarProducto(dicProduc):
+
+
+
+
+
+
+
