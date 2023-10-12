@@ -5,7 +5,7 @@ def diegoElemenListPos(lst, elem):
     #SI NO LO ENCUENTRA DEVUELVE -1
 
     for p in range(len(lst)):
-        if elem == lst[p]:   #si element es lista en la posicion p
+        if elem == lst[p]:   #si element es lista en la posicion pp
             return p
         
     return -1
