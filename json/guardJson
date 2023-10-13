@@ -1,0 +1,13 @@
+import json
+
+fd = open ( "/home/spukN01-010/campus/campus/11 archivos/lista.json","w")
+ 
+lst = [ {"nombre": "Paola","Edad": 25},
+        {"nombre": "Carlos","Edad": 28},
+        {"nombre": "Juan","Edad": 18},
+        {"nombre": "Mateo","Edad":19},
+        {"nombre": "Patricia","Edad": 21}]
+json.dump(lst, fd)
+
+fd.close()
+
