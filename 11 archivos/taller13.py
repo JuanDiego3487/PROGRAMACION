@@ -8,7 +8,7 @@ def  borrarPersonal(lstPersonal , rutaFile):
         input()
         return
 
-    for i in range(len(lstPersonal)): #Busqueda por posicion
+    for i in range(len(lstPersonal)): 
         datos = lstPersonal[i]
         k = int(list(datos.keys())[0]) 
         if k == id: 
@@ -22,7 +22,7 @@ def  borrarPersonal(lstPersonal , rutaFile):
 
 def existeId(id , lstPersonal): 
     for datos in lstPersonal:  
-        k = int(list(datos.keys())[0]) #Devuelve la lista de las llaves pero se debe colocar el list para que la ordene correctamente
+        k = int(list(datos.keys())[0]) 
         if k == id:
             return True 
     return False
@@ -36,7 +36,7 @@ def guardarEmpleado(lstPersonal , ruta):
         return None
     
     try: 
-        json.dump(lstPersonal, fd) #Carga el archivo
+        json.dump(lstPersonal, fd) 
     except Exception as e: 
         print("Error al guardar la informacion del empleado\n" , e)
         return None
@@ -82,7 +82,7 @@ def menu():
             print("2. Modificar ")
             print("3. ELiminar ")
             print("4. Vista ")
-            print("5. salir ")
+            print("5. Salir ")
             op = int(input(">>> Opción (1-8)? "))
             if op < 1 or op > 5:
                 print("Opción no válida. Escoja de 1 a 5.")
@@ -95,7 +95,7 @@ def menu():
 
 def cargarInfo(lstPersonal , ruta): 
     try: 
-        fd = open(ruta, "r") #Fd es la la apertura del archivo
+        fd = open(ruta, "r") 
     except Exception as e:  
 
         try: 
@@ -105,7 +105,7 @@ def cargarInfo(lstPersonal , ruta):
             return None 
     try:
         linea = fd.readline()
-        if linea.strip() != "": #Si tiene el archivo algo de contenido cargara los datos, sino creara una lista vacia.
+        if linea.strip() != "": 
             fd.seek(0)
             lstPersonal = json.load(fd) 
         else: 
@@ -115,9 +115,8 @@ def cargarInfo(lstPersonal , ruta):
         return None 
     
     print(lstPersonal)
-    fd.close() #Si se carga todo cierre el archivo
-    return lstPersonal #Deculve la lista cargada
-
+    fd.close() 
+    return lstPersonal 
 def mostrarEmpleado(lstPersonal, rutaFile): 
 
     print("\n\n4. Buscar empleado") 
@@ -132,11 +131,11 @@ def mostrarEmpleado(lstPersonal, rutaFile):
         datos = lstPersonal[i] 
         k = int(list(datos.keys())[0])
         if k == id:
-            for d in lstPersonal[i]:
-                print(f"Nombre: {lstPersonal[i][d]['nombre']}") 
-                print(f"Sexo: {lstPersonal[i][d]['sexo'].upper()}") 
-                print(f"Edad: {lstPersonal[i][d]['edad']}") 
-                print(f"Tel: {lstPersonal[i][d]['telefono']}") 
+            for e in lstPersonal[i]:
+                print(f"Nombre: {lstPersonal[i][e]['nombre']}") 
+                print(f"Sexo: {lstPersonal[i][e]['sexo'].upper()}") 
+                print(f"Edad: {lstPersonal[i][e]['edad']}") 
+                print(f"Tel: {lstPersonal[i][e]['telefono']}") 
                 input("")
 
 
@@ -198,6 +197,7 @@ while True:
     elif op == 4:
         mostrarEmpleado(lstPersonal, rutaFile)
     elif op == 5:
-        print("Gracias por usar el software") 
+        print("Haz orpimido Salir del sistema") 
+        input()
         break
     
