@@ -1,5 +1,23 @@
 import json
 
+def menu():
+    while True:
+        print("*"*4+ "Libreria Libros.com" + "*"*4)
+        print("1. Agregar o insertar")
+        print("2. Consultar")
+        print("3. Editar Libro")
+        print("4. Borrar Libro")
+        print("5. Listar Libro")
+        try:
+            opcion = int(input("Digite opcion: "))
+            if(opcion<1 or opcion>5):
+                print("opcion no valida, digite nuevamente: ")
+                continue
+            break
+        except Exception as e:
+            print("No valido",e)
+    return opcion
+
 
 def leerTitulo(msg):
     while True:
@@ -105,7 +123,7 @@ def guardarLibro(lst,rutaFile):
     return True
 
 
-def agregarLibreria(lstlibro,rutaFile):
+def insertarlibro(lstlibro,rutaFile):
     print("\n1. Agregar libro")
     codigo = str(leercodigo("ingrese el codigo: "))
     while existecodigo(codigo,lstlibro):
@@ -211,9 +229,8 @@ def BorrarLibro(lstlibro,rutafile):
         print()
         return
     
-def OrdenarLibros(lstlibros,categoria):
+def OrdenarLibros(lstlibros,rutafile,categoria):
     for i in range(len(lstlibros)-1):
-        
         for j in range(i+1,len(lstlibros)):
             K = (list(lstlibros[i].keys())[0])
             Kj = (list(lstlibros[j].keys())[0])
@@ -265,35 +282,15 @@ def listarLibro(lstLibro,rutafile):
         print()
         return
     
-def menu():
-    while True:
-        print("-"*30)
-        print("*"*7+ "Libreria Libros" + "*"*7)
-        print("-"*30)   
-        print("1. Agregar o insertar")
-        print("2. Consultar")
-        print("3. Editar Libro")
-        print("4. Borrar Libro")
-        print("5. Listar Libro")
-        try:
-            opcion = int(input("\nDigite opcion: "))
-            if(opcion<1 or opcion>5):
-                print("opcion no valida, digite nuevamente: ")
-                continue
-            break
-        except Exception as e:
-            print("No valido",e)
-    return opcion
-
-#PROGRAMA PRINCIPAL
+    
 def main():
     
-    rutafile = "\\libros.json"
+    rutafile = "libros.json"
     lstlibro = cargarinfo(rutafile)        
     while True:
         opcion = menu()
         if(opcion==1):
-            agregarLibreria(lstlibro,rutafile)
+            insertarlibro(lstlibro,rutafile)
         elif(opcion==2):
             codigo = str(leercodigo(">> Digite codigo del libro a consultar"))
             consultarlibro(lstlibro,codigo)
@@ -309,6 +306,6 @@ def main():
                  
         if op.lower() == "n":
             return
-                
+                #j
         
 main()
